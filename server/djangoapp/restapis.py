@@ -1,38 +1,41 @@
-import requests
-import json
 import os
+import requests
+from dotenv import load_dotenv
 
-backend_url = os.getenv('backend_url', default="http://localhost:3030")
+load_dotenv()
+
+backend_url = os.getenv(
+    'backend_url', default="http://localhost:3030"
+)
 sentiment_analyzer_url = os.getenv(
-    'sentiment_analyzer_url', default="http://localhost:5000/")
+    'sentiment_analyzer_url', default="http://localhost:5050/"
+)
 
 
 def get_request(endpoint, **kwargs):
     params = ""
-    if (kwargs):
+    if kwargs:
         for key, value in kwargs.items():
-            params = params + key + "=" + value + "&"
+            params = params + key + "=" + str(value) + "&"
+
     request_url = backend_url + endpoint + "?" + params
-    print("GET from {} ".format(request_url))
+    print(f"GET from {request_url}")
     try:
         response = requests.get(request_url)
         return response.json()
-    except Exception as e:
-        print(f"Network exception occurred: {e}")
+    except Exception as err:
+        print(f"Network exception occurred: {err}")
         return None
 
 
-def analyze_review_sentiments(text):
-    request_url = sentiment_analyzer_url + "analyze/" + text
+def analyze_review_sentiments(review_text):
+    request_url = sentiment_analyzer_url + "analyze/" + review_text
     try:
         response = requests.get(request_url)
-        res_json = response.json()
-        if isinstance(res_json, dict) and "sentiment" in res_json:
-            return res_json["sentiment"]
-        return "neutral"
+        return response.json()
     except Exception as err:
-        print(f"Unexpected {err=}, {type(err)=}")
-        return "neutral"
+        print(f"Unexpected error: {err}, {type(err)}")
+        return None
 
 
 def post_review(data_dict):
@@ -41,6 +44,6 @@ def post_review(data_dict):
         response = requests.post(request_url, json=data_dict)
         print(response.json())
         return response.json()
-    except Exception as e:
-        print(f"Network exception occurred: {e}")
+    except Exception as err:
+        print(f"Network exception occurred: {err}")
         return None
