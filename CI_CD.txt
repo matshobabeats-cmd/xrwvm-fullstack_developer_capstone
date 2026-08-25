@@ -1,0 +1,33 @@
+✓ main Lint Code · 32845054505
+Triggered via push about 9 minutes ago
+
+JOBS
+✓ Lint JavaScript Files in 12s (ID 97792760937)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Set up Node.js
+  ✓ Install JSHint
+  ✓ Run JSHint
+  ✓ Post Set up Node.js
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ Lint Python Files in 6s (ID 97792761168)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Set up Python
+  ✓ Install dependencies
+  ✓ Run flake8
+  ✓ Post Set up Python
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Lint JavaScript Files: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Lint Python Files: .github#2
+
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/matshobabeats-cmd/xrwvm-fullstack_developer_capstone/actions/runs/32845054505
