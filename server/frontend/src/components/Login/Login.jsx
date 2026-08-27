@@ -23,6 +23,7 @@ const Login = ({ onClose }) => {
             "userName": userName,
             "password": password
         }),
+        credentials: "include",
     });
     
     const json = await res.json();
@@ -35,9 +36,9 @@ const Login = ({ onClose }) => {
     }
 };
 
-  if (!open) {
-    window.location.href = "/";
-  };
+    if (!open) {
+      window.location.href = "/dealers";
+    };
   
 
   return (

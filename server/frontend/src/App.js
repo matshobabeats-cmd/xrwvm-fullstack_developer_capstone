@@ -8,6 +8,7 @@ import PostReview from "./components/Dealers/PostReview";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dealers" element={<Dealers />} />

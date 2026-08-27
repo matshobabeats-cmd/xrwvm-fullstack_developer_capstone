@@ -39,12 +39,13 @@ const PostReview = () => {
       "car_year": year
     });
 
-    const res = await fetch(`${root_url}djangoapp/add_review`, {
+        const res = await fetch(`${root_url}djangoapp/add_review`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: jsonmessage,
+      credentials: "include",
     });
 
     const json = await res.json();
